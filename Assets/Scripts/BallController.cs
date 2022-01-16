@@ -41,6 +41,16 @@ public class BallController : MonoBehaviour
 
 
         }
+        else if(collision.collider.tag == "Block")
+        {
+            Destroy(collision.gameObject);
+
+        }
+        // for level 2
+        else if(collision.collider.tag == "BottomWall")
+        {
+            Destroy(collision.gameObject);
+        }
     }
     public void ResetBall()
     {
