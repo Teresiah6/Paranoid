@@ -18,16 +18,18 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
         if (Input.GetKey(moveRight))
-        {
-            rigidbody2D.velocity = new Vector2(speed, 0);
-        }
-        else if (Input.GetKey(moveLeft))
-        {
-            rigidbody2D.velocity = new Vector2(-speed, 0);
-        }
-        else
-        {
-            rigidbody2D.velocity = new Vector2(0, 0);
-        }
+            {
+                rigidbody2D.velocity = new Vector2(speed, 0);
+            }
+            else if (Input.GetKey(moveLeft))
+            {
+                rigidbody2D.velocity = new Vector2(-speed, 0);
+            }
+            else
+            {
+                rigidbody2D.velocity = new Vector2(0, 0);
+            }
+        
+       
     }
 }
