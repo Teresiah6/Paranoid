@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
@@ -15,9 +16,12 @@ public class GameManager : MonoBehaviour
     public GameObject levelCompletedPanel;
     public GameObject gameOverPanel;
 
-    
-   // public static int numberOfBlocksHit;
-  //  public static int score = 0; 
+    public Button pauseButton;
+    public Button playButton;
+
+
+    // public static int numberOfBlocksHit;
+    //  public static int score = 0; 
     // Start is called before the first frame update
     void Start()
     {
@@ -30,7 +34,11 @@ public class GameManager : MonoBehaviour
         
         levelCompletedPanel.SetActive(false);
         gameOverPanel.SetActive(false);
+
+        playButton.gameObject.SetActive(false);
+        pauseButton.gameObject.SetActive(true);
        
+
     }
     public static void GameOver (string WallName)
     {
@@ -90,4 +98,25 @@ public class GameManager : MonoBehaviour
     {
         SceneManager.LoadScene(scene);
     }
+    public void Pause()
+    {
+        Time.timeScale = 0;
+        pauseButton.gameObject.SetActive(false);
+        playButton.interactable = true;
+        playButton.gameObject.SetActive(true);
+
+    }
+    public void Play()
+    {
+        playButton.gameObject.SetActive(false);
+        pauseButton.gameObject.SetActive(true);
+        pauseButton.enabled = true;
+        Time.timeScale = 1;
+    }
+    public void ExittoMain(string scene) {
+
+
+        SceneManager.LoadScene(scene);
+    }
+ 
 }
